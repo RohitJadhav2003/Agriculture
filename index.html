@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        header {
+            background-color: rgb(26, 191, 26);
+            padding: 20px
+        }
+
+        a {
+            text-decoration: underline;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        h4 {
+            text-align: center
+        }
+
+        section {
+
+            background-image: url('https://th.bing.com/th/id/OIP.CIExTFRR0rH_G5n1SNkDswHaE6?rs=1&pid=ImgDetMain');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 400px;
+            margin-top: -40px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 60px;
+            justify-content: space-evenly;
+            margin-left: 150px;
+            margin-top: 30px;
+            
+        }
+
+        .r1 {
+            float: right;
+            width: 350px;
+            height: 250px;
+            position: relative;
+            top: 80px;
+            right: 50px;
+            opacity: 0.6;
+        }
+
+        .name {
+            display: flex;
+            margin-left: 50px;
+        }
+
+        header {
+            display: flex;
+            
+        }
+
+        .r2 {
+            margin-left: 40px;
+        }
+
+
+
+        
+
+        
+         input[type=text] {
+            width: 130px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAW5JREFUSEvtlttNxEAMRb2VAJUAlQCVAJWwVAJUAlQCHCmWriYZP7SK9gdLq/1IMufesceeg50pDmfiWgd8aWb++zKz91NEZ2BA92b2OIEg4PXv2VNXRAS+MbO34oJtATMwDtTl0cy+l+0FQiDsetkR1/dcdb8FVqdAHpJ8eipIC3Fbyf8W+HMpIhbJasCdAiUt/CP2KkvRuPCLbF1JuQBwzvcEqWGnpjGC3S1HBXA3cE2qUtcj+GchoRbV3dCiZLu9EFfrKFi3KvwoUKOFGaZKwaq2WlSjBoqLdBHh0VJAWW3RcZguBZfVBuByuvaq6rQHROe4W9maqvY5HjsQlTk9ErLlmqbU7eyFsVdnY2+cYqnbSNnWdPpY3NPVfE5fDNOJNUsjMpvH9F6fOlEX8xsJVV2CZ43Cnd0FArRR6HEKnWdgdal3Lne1de8qwTvgzsBI4XuBEanwVd/eE+xw7mWrS8He4Gl6/sGdyj3p3V/QbV0fdavm6QAAAABJRU5ErkJggg==');
+            background-position: 1px 7px;
+            background-repeat: no-repeat;
+            padding: 10px 18px 10px 35px;
+            transition: width 0.4s ease-in-out;
+            margin-bottom: 30px;
+        }
+
+        input[type=text]:focus {
+            width: 100%;
+        }
+
+        footer {
+            background-color: lightgrey;
+            color: black;
+            font-weight: bolder;
+            position: absolute;
+            top: 360%;
+            right: 10px;
+            width: 100%;
+            height: 300px;
+        }
+
+        .imgf {
+            width: 50px;
+            height: auto;
+        }
+
+        .f1 {
+            display: flex;
+            gap: 50px;
+            margin-left: 1050px;
+            margin-top: -150px;
+        }
+        .d-block {
+            margin-left: 10%;
+            margin-bottom: 20px;
+        }
+
+        .img13 {
+            width: 200px;
+            margin-left: 60px;
+        }
+
+        .img12 {
+            width: 310px;
+            margin-left: 55px;
+        }
+
+        h4 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="container-fluid bg-dark" >
+    <header>
+        <div class="name">
+            <h1 style="color:rgb(1, 73, 1)">Jai</h1>
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAWdJREFUSEvFlgESATEMReskOAluwklwEpyEm3AT+k1/p2ybZNuynTHGbLYvyf9pzdxEazYR1/0TvAhFPvD9SzBA+Kydc6vwffTQw1gwNtkmm9SoNAqMjE8h+xpY+o4ZfA0tagXyfRO4NxRwFQwD7HuVmeyz85KdJXM9FShG4uK1nwcpOCpariIYzoWZvhdhyBgxNR1Z+neLc5zTFjBkC4fjee2K50buALl/jc7GA29h8GuqZJJM/v07B071JbSHw6O+GpiBvRwe9S2BqSGqbdWUbYZU2C+uXKsBxqAjGO6Gg1sXJRPBmMm35f3IaPNsSWhQrXSA4Flpni0wxqAAeAXwjyXdxz3aPGgx6RK4pc3FSjVwS5vjDSRpUqo4nV2OlXRq8RyHlgM9cwmUwKm+jOF/KN5EdD+gJpg2x3ieA49xsxpbqpgXRXYG1V0NARr440Yx7GcOkcyFTcxmMRND4C//0Iu5TAZ+AWuqSR8OuY9lAAAAAElFTkSuQmCC" />
+            <h1 style="color: white;">Krishi</h1>
+        </div>
+        <div class="nav">
+            <a href="">Home</a>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Products
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="product.html">Fresh fruits and Vegetables</a></li>
+                <li><a class="dropdown-item" href="product.html">Seeds Products</a></li>
+                <li><a class="dropdown-item" href="product.html">Weed & Pest control</a> </li>
+                <li><a class="dropdown-item" href="product.html">Fertilizer products</a> </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Solutions
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="solution.html">Crop Planing & Production</a></li>
+                <li><a class="dropdown-item" href="solution.html">Pest & Disease control</a> </li>
+                <li><a class="dropdown-item" href="solution.html">Nutrition management</a> </li>
+              </ul>
+            </div>
+            <a href="Contact Us.html">Contact Us</a>
+            <a href="login.html">Login</a>
+            <form>
+                <input type="text" name="search" placeholder="Search..">
+            </form>
+           
+        </div>
+    </header>
+
+    <!--<section>
+
+        <img class="r1" src="https://i.pinimg.com/originals/a6/de/c8/a6dec8a11bdedd88cb4f4e7e12c0c1c3.jpg">
+
+
+        <div class="r2">
+            <h1 style="font-size: 50px;">Agriculture</h1>
+            <p>Developing and testing for<br> sustainable agriculture The rise of sustainable technology presents innovators with a unique opportunity to
+                initiate substantial changes within the agricultural sector. Ritam Gandhi, Director and founder of Studio
+                Graphene gives us the full story </p> 
+        </div>
+    </section>-->
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img
+              src="https://wallpaperbat.com/img/319677-agriculture-desktop-wallpaper.jpg"
+              class="d-block sl " alt="agriculture" style="width: 80%; height:600px;">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://thumbs.dreamstime.com/b/agriculture-tractor-field-agricultural-composition-39855248.jpg"
+              class="d-block sl" alt="..." style="width: 80%; height:600px;">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://cosmosmagazine.com/wp-content/uploads/2020/02/180606-agriculture-full-1440x960.jpg"
+              class="d-block sl" alt="..." style="width: 80%; height:600px;">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://wallpaperaccess.com/full/1598228.jpg" class="d-block sl" alt="..."
+              style="width: 80%; height600px;">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img
+              src="https://png.pngtree.com/png-vector/20220819/ourmid/pngtree-small-peas-seed-wheat-corn-png-image_5905580.png"
+              class="d-block sl" alt="..." style="width: 80%; height:600px;">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://www.worldatlas.com/r/w1200/upload/0f/a8/01/shutterstock-1467898517.jpg" class="d-block sl"
+              alt="..." style="width: 80%; height:600px;">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://supplementrant.com/wp-content/uploads/2016/12/shutterstock_336060251.jpg" class="d-block sl "
+              alt="..." style="width: 80%; height:600px;">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://www.apacoutlookmag.com/media/Agriculture-Sensor-Technology-Ritam-Gandhi.png"
+              class="d-block sl" alt="" style="width: 80%; height:600px;">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://cdndailyexcelsior.b-cdn.net/wp-content/uploads/2023/10/need.jpg" class="d-block sl" alt=""
+              style="width: 80%; height:600px;">
+          </div>
+    
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://assets.telegraphindia.com/telegraph/25regChemicals.jpg" class="d-block sl" alt=""
+              style="width: 80%; height:600px;">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img
+              src="      https://static.vecteezy.com/system/resources/previews/011/941/693/large_2x/smart-agriculture-with-modern-technology-concept-landscape-of-green-rice-farm-field-rainbow-and-icon-of-smart-farming-concept-sustainable-agriculture-precision-agriculture-climate-monitoring-photo.jpg"
+              class="d-block sl" alt="" style="width: 80%; height:600px;">
+          </div>
+    
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    
+    
+    <div >
+    <h2 style="text-align: center; color: aliceblue;">Jai krishi Differentiation</h2>
+    <div class="container ">
+        <div class="row gy-3">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card" style="width: 390px; height: 435px;">
+              <img src="https://www.apacoutlookmag.com/media/Agriculture-Sensor-Technology-Ritam-Gandhi.png"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h4>Precise lrregation</h4>
+                <p class="card-text"> The rise of sustainable technology presents innovators with a unique opportunity to
+                  initiate substantial changes within the agricultural sector. Ritam Gandhi, Director and founder of Studio
+                  Graphene gives us the full story .</p>
+                <a href="#" class="btn btn-secondary">know more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card" style="width: 390px; height: 435px;">
+              <img src="https://t4.ftcdn.net/jpg/09/73/99/45/240_F_973994509_oORjMsw3XsHUj3AXeWO2TIrc7XvfaKu0.jpg"
+                class="card-img-top img12" alt=".">
+              <div class="card-body">
+                <h4>Precise lrregation</h4>
+                <p class="card-text"> jai krishi ensures crops are precisely irrigated automatically without any human
+                  intervention and reduces water.</p>
+                <a href="#" class="btn btn-secondary">know more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card" style="width: 390px; height: 435px;">
+              <img src="https://openclipart.org/image/2400px/svg_to_png/136105/GS-Agriculture-logo.png"
+                class="card-img-top img13" alt="...">
+              <div class="card-body">
+                <h4>Crop-Specific fertigation plans</h4>
+                <p class="card-text">Precise fertigation of crop by GroTron based on a schedule recommended by Agronomist
+                  and
+                  automatically
+                  adjusts fertigation based on real-time conditions of the cro.</p>
+                <a href="solution.html" class="btn btn-secondary">know more</a>
+              </div>
+            </div>
+          </div>
+    
+    
+          <div class="row gy-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class=" col-12 card" style="width: 390px; height: 435px;">
+                <img
+                  src="https://static.wixstatic.com/media/07b7a6_a490675a298b4a5698204a52ea749890~mv2.png/v1/fill/w_173,h_173,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ico_pest_detection.png"
+                  class="card-img-top img13" alt="...">
+                <div class="card-body">
+                  <h4>Pest and disease control</h4>
+    
+                  <p class="card-text">Our Artificial Intelligence and Computer Vision technology enable early detection of
+                    pest,
+                    disease or
+                    nutrition deficiency in plants and instantly connects with an Agronomist to remediate.</p>
+                  <a href="product.html" class="btn btn-secondary">know more</a>
+                </div>
+              </div>
+            </diV>
+    
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="width: 390px; height: 435px;">
+                <img src="https://th.bing.com/th/id/OIP.SIGZygZcedagzvZtn4UGAwHaHa?w=190&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                  class="card-img-top img13" alt="...">
+                <div class="card-body">
+                  <h4 class="card-title">Farm Input Supply</h4>
+                  <p class="card-text">Reduce crop production cost by buying farm inputs directly from our trusted partners
+                    at
+                    lower
+                    prices, discover modern nutrients to improve crop productivity and effective ways to remediate pest,
+                    disease and nutrition deficiency.</p>
+                  <a href="#" class="btn btn-secondary">know more</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="width: 390px; height: 435px;">
+                <img src="https://icon-library.com/images/nutrition-icon/nutrition-icon-4.jpg"" class=" card-img-top img13"
+                  alt="...">
+                <div class="card-body">
+                  <h4 class="card-title">Autonomous Precision</h4>
+                  <p class="card-text"> jai krishi runs irrigation and fertigation in a farm without missing a day and
+                    without
+                    manual
+                    intervention. Ensures crops receive the precise irrigation and fertigation, thereby increasing their
+                    productivity and resistance to pest and diseases.</p>
+                  <a href="#" class="btn btn-secondary">know more</a>
+                </div>
+              </div>
+            </div>
+    
+    
+            <div class="row gy-3">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class=" card" style="width: 390px; height: 435px;">
+                  <img
+                    src="https://cdn.dribbble.com/users/3330/screenshots/305371/media/5d8b21a34994e0b4f00c594c02083940.png?compress=1&resize=400x300&vertical=center"
+                    class="card-img-top img13" alt="...">
+                  <div class="card-body">
+                    <h4 class="card-title">yieldboost</h4>
+                    <p class="card-text">With precise fertigation, irrigation and timely guidance from agronomists on
+                      nutrition
+                      and disease
+                      management, yield get a significant boost by upto 50% and in some cases by upto 200%.</p>
+                    <a href="#" class="btn btn-secondary">know more</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card" style="width: 390px; height: 435px;">
+                  <img src="https://cdn-icons-png.flaticon.com/512/10427/10427015.png" class="card-img-top img13" alt="...">
+                  <div class="card-body">
+                    <h4 class="card-title">Protected Cultivation</h4>
+                    <p class="card-text">Jai Krishi ensures climate in protected cultivation environment is ideal for crops,
+                      temperature and
+                      humidity in a protected structures like net house or poly house is maintained at ideal levels to
+                      ensure crop productivity and disease control.</p>
+                    <a href="#" class="btn btn-secondary">know more</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card" style="width: 390px; height: 435px;">
+                  <img src="https://image.shutterstock.com/image-vector/green-phone-260nw-741041035.jpg"
+                    class="card-img-top img13" alt="...">
+                  <div class="card-body">
+                    <h4 class="card-title">Smart Farms</h4>
+                    <p class="card-text"> Geo plotting, daily fertigation and irrigation updates, images of crops to track
+                      growth and detect
+                      diseases helps get complete visibility to farm and crop health.</p>
+                    <a href="solution.html" class="btn btn-secondary">know more</a>
+                  </div>
+                </div>
+              </div>
+    
+    
+              <div class="row gy-3">
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class=" card" style="width: 390px; height: 435px;">
+                    <img
+                      src="https://b2b989d215c701ad63d7-288404e13f895703cf2798bf6ae95228.ssl.cf1.rackcdn.com/457350066413-350.jpg"
+                      class="card-img-top img12" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-title">Track Harvest</h4>
+                      <p class="card-text">Track target vs actual yield. Publish upcoming harvest on <b>jai krishi</b>
+                        network and get
+    
+                        connected with
+                        potential buyers.</p>
+                      <a href="#" class="btn btn-secondary">know more</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class="card" style="width: 390px; height: 435px;">
+                    <img
+                      src="https://picjumbo.com/wp-content/uploads/fresh-amp-colorful-fruits-and-vegetables-2210x1473.jpg"
+                      class="card-img-top img12" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-title">Fresh fruits and Vegitables</h4>
+                      <p class="card-text">In our Jai krishi Vegetables are parts of plants that are consumed by humans or
+                        other animals as food. The original meaning is still commonly used and is applied to plants
+                        collectively to refer to all edible plant matter.</p>
+                      <a href="product.html" class="btn btn-secondary">know more</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class="card" style="width: 390px; height: 435px;">
+                    <img src="https://www.agrifarming.in/wp-content/uploads/Climate-resilient-Crop-Varieties-6-768x530.jpg"
+                      class="card-img-top img12" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-title">Seeds products</h4>
+                      <p class="card-text">Buy Seeds Online in India from Jai krishi Give your garden a lively touch by
+                        getting access to top-quality seeds online. Grow your own vegetables at home or land.</p>
+                      <a href="product.html" class="btn btn-secondary">know more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+       <footer>
+        <pre>
+
+        HOME                   PRODUCTS                       SOLUTION                        CONTACT US        
+
+        TERMS & CONDITIONS     FRESH FRUITS AND VEGITABLES    Crop planning and production    ADDRESS        
+
+        DIAGEO                 SEEDS PRODUCTS                 Pest and Disease Control        EMAIL ID:rj5589738@gmail.com
+
+        ABOUT US               WEED CONTROL                   Nutrition Management            call:8867287140 9535397512
+
+                               FERTILIZER PRODUCTS                                            Login
+</pre>
+        <div class="f1">
+            <a href=""><img class="imgf"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAZBJREFUSEvFlstRxDAMQLWdQCVAJ2wlQCVAJdAJ2wnMy8QZRZEl2QeiS3YT209/6yInyeUkrsyA70TkUUR43lbFeX6PGFEFA3kWkZfg8Ab/rCiRgStAq0tT4E155KBvBAb6tbp0xIttLQo89eA9MNCfGZrZA/zqub4HxlISKBMOJqYIv1H4wex1LffA72siZdCP1Rq7jiTkDC2HtRaMlVibCaVD/DzxwAeXW3DVWuKGFVpwc6txr+x2ylowCcXmTO5NtlZyAqvZt4gGV91s9/H/N9N0/U54lg6nwV5seudZT1XBW4j+G0w3e7UW86LXi3fxSdwaJahrcRTjEXCUoFtSaldHbXIEHMV749kk6ZUFYOLTxNYwidnEdi0dmS642kBmsnrXNu0B1VtpBrxrOt4lUannUfBWRl7nau+wGpdH1+II2E3MaBCIpo8qeHgQwHosp6HojO15yiuh6OpMx9vesJdZ3BsSttLKpkwddyxvY40HbmPQ0oszqYL1OXqQ14q14T5jLt9nwKWDs0Wngf8AqXJcH3pki+8AAAAASUVORK5CYII=" /></a>
+            <a href=""><img class="imgf"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAblJREFUSEvNl7EuREEUhr99EzS8gUaCREWEghq9Qkco2EQiUSn0qGkIjQbReAUV76Fg/2TOZtydmTt3drO702x2MzPf+f8558xsixGN1oi4jD14wjljnymjXnNcTCkWZBuYBxZyNvPmfAM3ne8nsXUxsEAvDWGh6QpgpxN4jwsx8BeQY2tObIJPVieGwFfO4pxNYyoF84/n2invzg+B+1Hrq9NRGbxHdQj8WyPVEsfOTUdy7I7GB/gCasF1SdWOZKpVgAIQRKOaI4t+klUVp8AGnQE2gTkHeAdugU8XlOChUQSWrVo4DVwCS5Wdn4Fd4AdQcobqvghsao+A04iiQ+AsoboIrCagkngCliPgB2DNqQ01nyKwLXoEViLge2Dd9QDZXR1FYLP6wNkZYu8D54O22upwCrgAVitkqd1zpRRrQEWKxbG2p767Acw6+Adw56C6jYrKSUWviGM9OHXVpaDaTwFbc+l5gaTAFowWq67fvA61lXGb/WtWoV7tN/eI+MY/1/Zq7VhnWWOqlx/dtSHFsluqh/4QUFSDgjd++hh86I+96jnKgVzr+37eliRR9pqx/yeRrSR34h/wNmcf6GENxQAAAABJRU5ErkJggg==" /></a>
+            <a href=""><img class="imgf"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAcxJREFUSEvlluFNAzEMRt1N6CTAJnQSYBJgksIkwCTAk/JJPsdOcvypEJGqSnc+P/uz4+RgF1qHC3HtT4KvzIzfR/vtEm9PxkDuzOzazG4CBfirmb39BPO8EsEq+MHM7p1DQCz+syBuZyrMwGR5dpK+tMzIzi/sCIDgJD+2BJyuERhHQFmAyGK2VA6p81jBR2CgwMuPB1EoaEpxaoFvzCuwahozxWGUueLLB/BjNMrAXmI+UCO9t/oh+Qrc9wdZb7o9A7NlnppEMtazPfXGVkl0PZKBgQLy2eqZFPPvRg1H1ijVyZ2BJal/99uMCUr+NsFm4K8kQkWOo71drt2x6Y0ILqVp8iN5uUUKzbPSpadTlrF8+i3i9ydNRNDZnM5Kl4JTaRrZTyZ/MJAVi2dxVJLIUlcrK6Inq2zFQ8Pb+O/UlJ2vrLlGdfYA7JjJONeK9S+HTjUyJXc3cZL0dSHQcJGJfKTKVeB0782OJvfeHxLdnMZuNKt9pDpjZ2zsaDRdDsq5PprVgD/dVUcdy3MdHAoknsPTvZ6BVRufHY5w7ptI8Hj1WZpso5GJY13eBM4ue7plettZSboaq0NXz9so+RQog9llb9nRXsP/B/4GT5eKH8jNYwIAAAAASUVORK5CYII=" /></a>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
